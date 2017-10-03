@@ -1,0 +1,33 @@
+salir=1
+alumno={}
+def pro(a,b,c,d):
+	p=(float(a+b+c+d)/4)
+	return p
+
+# aqui el while  se usa para armar los d.n.i de los alumnos con sus respectivos datos.
+while salir==1:
+	promedio=0
+	nombre =[]
+	apellido=[]
+	dni=[]
+	ingreso=[]
+	notalengua=0
+	notamatematica=0
+	notaingles=0
+	notaprogramacion=0
+	nombre=(str(raw_input("Ingrese el nombre: ")))
+	apellido=(str(raw_input("ingrese apellido: ")))
+	dni=(int(raw_input("ingrese dni: ")))
+	ingreso=(int(raw_input("ingrese anio de ingreso")))
+	notamatematica=(int(raw_input("ingrese nota de matematica")))
+	notalengua=(int(raw_input("ingrese nota de lengua")))
+	notaingles=(int(raw_input("ingrese nota de ingles")))
+	notaprogramacion=(int(raw_input("ingrese nota de programacion I")))
+	promedio = pro(notalengua,notamatematica,notaingles,notaprogramacion)
+	alumno[nombre+" "+apellido]={'nombre':nombre,'apellido':apellido,'D.N.I':dni,'ingreso':ingreso,'lengua':notalengua,'matematica':notamatematica,'ingles':notaingles,'programacion':notaprogramacion,'promedionotas':promedio}
+	salir = int(raw_input("para terminar pulse 0, para continuar 1"))
+print alumno
+
+#recorremos el diccionario alumno.
+
+

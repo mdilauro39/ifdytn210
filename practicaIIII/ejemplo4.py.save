@@ -1,0 +1,8 @@
+palabra = str(raw_input("escriba una palabra"))
+
+def vocal(letra):
+	for k in letra:
+		if k =="a" or ("e") or "i" or "o" or "u":
+			return "si"
+
+print vocal(palabra)
