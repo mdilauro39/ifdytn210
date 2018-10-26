@@ -16,13 +16,8 @@ class Registro:
 	def imprimirtodo(self):
 		print (self.c.fetchall())
 	def para(self):
-		p = "SELECT Dirección,Ciudad,CódPostal from Clientes \
-		where CódPostal = 3012"
+		p = "SELECT Dirección,Ciudad,CódPostal FROM Clientes"
 		self.c.execute(p)
-		#print(self.c.execute("SELECT * FROM Clientes"))
-		#self.c.execute("SELECT COUNT(NombreCompañía) AS 'cantidad de compañías', País FROM Clientes WHERE País = 'Francia';")
-		#self.c.execute"(SELECT Dirección,Ciudad,CódPostal from Clientes where CódPostal = 3012)"
-
 prueba = Registro(cursor)
 
 prueba.para()
