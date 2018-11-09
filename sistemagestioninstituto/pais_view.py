@@ -8,8 +8,8 @@ class PaisView:
         self.tab2 = "    " * 2
         self.tab3 = "    " * 3
         self.txt_opt = "%sElija una opción: " % self.tab2
-        self.txt_pais = "%sPaís: " % self.tab3
-        self.txt_abbr = "%sAbreviatura: " % self.tab3
+        self.txt_nombre = "%sPaís: " % self.tab3
+        self.txt_apellido = "%sAbreviatura: " % self.tab3
         self.txt_id = "%sID de país: " % self.tab3
         pass
 
@@ -37,9 +37,9 @@ class PaisView:
         print """
         CREAR UN NUEVO PAÍS
         """
-        pais = raw_input(self.txt_pais)
-        abbr = raw_input(self.txt_abbr)
-        return (pais, abbr)
+        nombre = raw_input(self.txt_nombre)
+        apellido = raw_input(self.txt_apellido)
+        return (nombre, apellido)
 
     def confirmar_creacion(self):
         """Vista de confirmación de creación de nuevo país"""

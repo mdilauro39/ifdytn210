@@ -5,27 +5,16 @@ from db_conn import DBConn
 class Pais:
 
     def __init__(self):
-        self.id_per = 0
+        self.idpersona = 0
         self.nombre = ''
         self.apellido = ''
         self.db = DBConn()
-	self.fecha_nac = ''
-	self.dni = ''
-	self.sexo = ''
-	self.nacionalidad = ''
-	self.telefono = ''
-	self.celular = ''
-	self.mail = ''
-	self.cod_per = ''
-	self.ingreso = ''
-	self.id_mate = ''
-	self.cod_afi = ''
-	self.cod_dis = ''
+
     def create(self):
         """Crear un nuevo registro"""
-        query = "INSERT INTO persona(nombre , apellido) VALUES (null, %s, %s)"
-	values = (self.nombre , self.apellido)
-	self.db.ejecutar(query, values)
+        query = "INSERT INTO persona (idpersona, nombre, apellido) VALUES (null, %s, %s)"
+        values = (self.nombre, self.apellido)
+        self.db.ejecutar(query, values)
 
     def update(self):
         """Actualizar un registro existente"""

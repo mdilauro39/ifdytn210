@@ -8,20 +8,20 @@ class PersonaView:
         self.tab2 = "    " * 2
         self.tab3 = "    " * 3
         self.txt_opt = "%sElija una opción: " % self.tab2
-        self.txt_persona = "%sPaís: " % self.tab3
         self.txt_nombre = "%sNombre: " % self.tab3
-        self.txt_id = "%sID de país: " % self.tab3
+        self.txt_apellido = "%sApellido: " % self.tab3
+        self.txt_idpersona = "%sID de país: " % self.tab3
         pass
 
     def mostrar_menu(self):
         """Vista del menú de opciones"""
 
         menu = """
-        Menú del Gestor de Persona
-            (1) Crear un Persona
-            (2) Ver listado de países
-            (3) Editar un país
-            (4) Eliminar un país
+        Menú del Gestor de Personas
+            (1) Crear una persona
+            (2) Ver listado de personas
+            (3) Editar un personas
+            (4) Eliminar un persona
 
             (0) Salir
 
@@ -32,63 +32,63 @@ class PersonaView:
         return opcion
 
     def crear_persona(self):
-        """Vista del formulario para crear nuevo país"""
+        """Vista del formulario para crear nueva persona"""
 
         print """
         CREAR UN NUEVa Persona
         """
-        persona = raw_input(self.txt_persona)
         nombre = raw_input(self.txt_nombre)
-        return (persona, nombre)
+        apellido = raw_input(self.txt_apellido)
+        return (nombre, apellido)
 
     def confirmar_creacion(self):
-        """Vista de confirmación de creación de nuevo país"""
+        """Vista de confirmación de creación de nueva persona"""
 
         print """
         Persona creado con éxito!
         """
 
-    def listar_paises(self, listado):
-        """Vista para el listado de países"""
+    def listar_persona(self, listado):
+        """Vista para el listado de persona"""
 
         print """
-            LISTADO DE PAÍSES:
+            LISTADO DE Personas:
         """
         for row in listado:
-            id = row[0]
-            pais = row[1]
-            abbr = row[2]
-            print "%s[%d] %s (%s)" % (self.tab3, id, pais, abbr)
+            idpersona = row[0]
+            nombre = row[1]
+            apellido = row[2]
+            print "%s[%d] %s (%s)" % (self.tab3, idpersona, nombre, apellido)
 
-    def editar_pais(self, listado):
-        """Vista del formulario para editar un país"""
+    def editar_persona(self, listado):
+        """Vista del formulario para editar un persona"""
 
-        self.listar_paises(listado)
+        self.listar_persona(listado)
         print "\n\n"
-        id = raw_input(self.txt_id)
+        idpersona = raw_input(self.txt_idpersona)
         print "\n"
-        pais = raw_input(self.txt_pais)
-        abbr = raw_input(self.txt_abbr)
-        return (id, pais, abbr)
+        nombre = raw_input(self.txt_nombre)
+        apellido = raw_input(self.txt_apellido)
+	return (idpersona, nombre, apellido)
 
-    def confirmar_editar_pais(self):
+    def confirmar_editar_persona(self):
         """Vista de confirmación de edición"""
 
         print """
-        País editado correctamente.
+        Persona editada correctamente.
         """
 
-    def eliminar_pais(self, listado):
-        """Vista de formulario para eliminar país"""
+    def eliminar_persona(self, listado):
+        """Vista de formulario para eliminar una persona"""
 
-        self.listar_paises(listado)
+        self.listar_persona(listado)
         print "\n\n"
-        id = raw_input(self.txt_id)
+        idpersona = raw_input(self.txt_idpersona)
         print "\n"
-        return id
+        return idpersona
 
-    def confirmar_eliminar_pais(self):
-        """Vista de cofirmación eliminar país"""
+    def confirmar_eliminar_persona(self):
+        """Vista de cofirmación eliminar persona"""
         print """
-        País eliminado correctamente.
+        Persona eliminada correctamente.
         """
