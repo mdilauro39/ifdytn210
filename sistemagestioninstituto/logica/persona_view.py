@@ -11,6 +11,7 @@ class PersonaView:
         self.txt_nombre = "%sNombre: " % self.tab3
         self.txt_apellido = "%sApellido: " % self.tab3
         self.txt_idpersona = "%sID de país: " % self.tab3
+	self.txt_dni = "%sD.N.I de la persona: " % self.tab3
         pass
 
     def mostrar_menu(self):
@@ -20,8 +21,8 @@ class PersonaView:
         Menú del Gestor de Personas
             (1) Crear una persona
             (2) Ver listado de personas
-            (3) Editar un personas
-            (4) Eliminar un persona
+            (3) Editar una personas
+            (4) Eliminar una persona
 
             (0) Salir
 
@@ -32,14 +33,15 @@ class PersonaView:
         return opcion
 
     def crear_persona(self):
-        """Vista del formulario para crear nueva persona"""
+        """Vista del formulario para crear una nueva persona"""
 
         print """
-        CREAR UN NUEVa Persona
+        CREAR UN NUEVA  PERSONA
         """
         nombre = raw_input(self.txt_nombre)
         apellido = raw_input(self.txt_apellido)
-        return (nombre, apellido)
+	dni = raw_input(self.txt_dni)
+        return (nombre, apellido, dni)
 
     def confirmar_creacion(self):
         """Vista de confirmación de creación de nueva persona"""
@@ -52,13 +54,14 @@ class PersonaView:
         """Vista para el listado de persona"""
 
         print """
-            LISTADO DE Personas:
+            LISTADO DE PERSONAS:
         """
         for row in listado:
             idpersona = row[0]
             nombre = row[1]
             apellido = row[2]
-            print "%s[%d] %s (%s)" % (self.tab3, idpersona, nombre, apellido)
+	    dni = row[3]
+            print "%s[%d] %s (%s) %s" % (self.tab3, idpersona, nombre, apellido, dni)
 
     def editar_persona(self, listado):
         """Vista del formulario para editar un persona"""
@@ -69,7 +72,8 @@ class PersonaView:
         print "\n"
         nombre = raw_input(self.txt_nombre)
         apellido = raw_input(self.txt_apellido)
-	return (idpersona, nombre, apellido)
+	dni = raw_input(self.txt_dni)
+	return (idpersona, nombre, apellido, dni)
 
     def confirmar_editar_persona(self):
         """Vista de confirmación de edición"""

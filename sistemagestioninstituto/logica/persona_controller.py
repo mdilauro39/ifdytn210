@@ -10,7 +10,7 @@ class PersonaController:
         self.persona_controller() 
 
     def persona_controller(self):
-        """Controlador general de País"""
+        """Controlador general de persona"""
         peticion = self.vista.mostrar_menu()
         self.peticion = int(peticion)
 
@@ -24,35 +24,37 @@ class PersonaController:
             self.eliminar_persona_controller()
 
     def crear_persona_controller(self):
-        """Controlador para creación de nuevo país"""
-        (persona_nombre, persona_apellido) = self.vista.crear_persona()
+        """Controlador para creación de nueva persona"""
+        (persona_nombre, persona_apellido, persona_dni) = self.vista.crear_persona()
         persona = Persona()
         persona.nombre = persona_nombre
         persona.apellido = persona_apellido
+	persona.dni = persona_dni
         persona.create()
         self.vista.confirmar_creacion()
         self.persona_controller()
 
     def traer_persona(self):
-        """Trae una lista de todos los países"""
+        """Trae una lista de todos las personas"""
         persona = Persona()
         listado = persona.read_all()
         return listado
 
     def listar_persona_controller(self):
-        """Controlador del listado de países"""
+        """Controlador del listado de persona"""
         listado = self.traer_persona()
         self.vista.listar_persona(listado)
         self.persona_controller()
 
     def editar_persona_controller(self):
-        """Controlador para editar un país"""
+        """Controlador para editar un persona"""
         listado = self.traer_persona()
-        (idpersona, nombre, apellido) = self.vista.editar_persona(listado)
+        (idpersona, nombre, apellido, dni) = self.vista.editar_persona(listado)
         persona = Persona()
         persona.idpersona = int(idpersona)
         persona.nombre = nombre
         persona.apellido = apellido
+	persona.dni = dni
         persona.update()
         self.vista.confirmar_editar_persona()
         self.persona_controller()
