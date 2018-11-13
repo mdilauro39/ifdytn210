@@ -1,10 +1,10 @@
 # -*- coding: utf-8 *-*
 import MySQLdb
-
+import time
 
 class DBConn:
 
-    def __init__(self, db_host='localhost', db_user='root', db_pass='mad1880',
+    def __init__(self, db_host='localhost', db_user='marcos', db_pass='root210',
                  db_name='isfdyt210'):
         self.db_host = db_host
         self.db_user = db_user
@@ -23,6 +23,9 @@ class DBConn:
     def ejecutar_consulta(self, query, values=''):
         """Ejecutar una consulta"""
         if values != '':
+            print(query)
+            print(values)
+            time.sleep(5)
             self.cursor.execute(query, values)
         else:
             self.cursor.execute(query)
@@ -44,6 +47,9 @@ class DBConn:
 
     def ejecutar(self, query, values=''):
         """Compilar todos los procesos"""
+        print(query)
+        print(values)
+        time.sleep(1)
         # ejecuta todo el proceso solo si las propiedades han sido definidas
         if (self.db_host and self.db_user and self.db_pass and self.db_name and
             query):

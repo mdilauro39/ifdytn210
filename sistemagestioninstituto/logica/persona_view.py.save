@@ -61,7 +61,7 @@ class PersonaView:
             nombre = row[1]
             apellido = row[2]
 	    dni = row[3]
-            print "%s[%d] %s (%s) %s" % (self.tab3, idpersona, nombre, apellido, dni)
+            print "%s[%d] %s (%s) %s[%d]" % (self.tab3, idpersona, nombre, apellido, dni)
 
     def editar_persona(self, listado):
         """Vista del formulario para editar un persona"""

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 *-*
 from persona import Persona
 from persona_view import PersonaView
-
+import time
 
 class PersonaController:
 
@@ -26,7 +26,9 @@ class PersonaController:
     def crear_persona_controller(self):
         """Controlador para creación de nueva persona"""
         (persona_nombre, persona_apellido, persona_dni) = self.vista.crear_persona()
-        persona = Persona()
+        print(type(persona_dni))
+	time.sleep(15)
+	persona = Persona()
         persona.nombre = persona_nombre
         persona.apellido = persona_apellido
 	persona.dni = persona_dni

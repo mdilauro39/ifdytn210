@@ -5,7 +5,7 @@ from db_conn import DBConn
 class Persona:
 
     def __init__(self):
-        self.idpersona = 0
+        self.idpersona =''
         self.nombre = ''
         self.apellido = ''
 	self.dni = 0
@@ -26,16 +26,23 @@ class Persona:
 
     def read_all(self):
         """Leer todos los registros"""
-        query = "SELECT idpersona, nombre, apellido , dni FROM persona"
+        query = "SELECT idpersona, nombre , apellido , dni FROM persona"
         return self.db.ejecutar(query)
 
     def read(self):
-        query = "SELECT idpersona, nombre, apellido, dni FROM persona WHERE idpersona = %d"
+        query = "SELECT idpersona, nombre, apellido, dni FROM persona WHERE idpersona = %s"
         values = (self.idpersona)
         return self.db.ejecutar(query, values)
-
-    def delete(self):
+    
+    def delete_roto(self):
         """Elimina uno o todos los registros"""
         query = "DELETE FROM persona WHERE idpersona = %d"
-        values = self.idpersona
+        values = int(self.idpersona)
         return self.db.ejecutar(query, values)
+    
+    def delete(self):
+        """Elimina uno o todos los registros"""
+        query = 'DELETE FROM persona WHERE idpersona = ' + str(self.idpersona)
+        #values = self.idpersona
+        #return self.db.ejecutar(query, values)
+        return self.db.ejecutar(query)
