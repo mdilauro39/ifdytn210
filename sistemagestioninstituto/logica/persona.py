@@ -8,8 +8,8 @@ class Persona:
         self.idpersona =''
         self.nombre = ''
         self.apellido = ''
-	self.dni = 0
-	self.fecha_nacimiento = ''
+        self.dni = 0
+        self.fecha_nacimiento = ''
         self.db = DBConn()
 
     def create(self):

@@ -8,7 +8,7 @@ class PersonaController:
     def __init__(self):
         self.vista = PersonaView()
         self.persona_controller() 
-
+        
     def persona_controller(self):
         """Controlador general de persona"""
         peticion = self.vista.mostrar_menu()
@@ -29,7 +29,7 @@ class PersonaController:
         persona = Persona()
         persona.nombre = persona_nombre
         persona.apellido = persona_apellido
-	persona.dni = persona_dni
+        persona.dni = persona_dni
         persona.create()
         self.vista.confirmar_creacion()
         self.persona_controller()
@@ -54,7 +54,7 @@ class PersonaController:
         persona.idpersona = int(idpersona)
         persona.nombre = nombre
         persona.apellido = apellido
-	persona.dni =int(dni)
+        persona.dni =int(dni)
         persona.update()
         self.vista.confirmar_editar_persona()
         self.persona_controller()
